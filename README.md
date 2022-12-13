@@ -42,3 +42,9 @@ docker run -d --rm --name sentinel-2 --net redis `
 
 docker ps
 
+docker run -it -p 80:80 `
+  --net redis `
+  -e REDIS_SENTINELS="sentinel-0:5000,sentinel-1:5000,sentinel-2:5000" `
+  -e REDIS_MASTER_NAME="mymaster" `
+  -e REDIS_PASSWORD="a-very-complex-password-here" `
+  videos
